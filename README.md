@@ -51,8 +51,8 @@ For a professional level editing, issue-tracking and service, consider [hiring](
 #### Why isn't my School / Study course represented in the repo?
 
 Probably because I didn't have the chance to look up the rules specific for your course and make the necessary modifications to the files. You can open a [ticket](https://github.com/daemonPainter/polimi-press-package/issues) suggesting the files with the rules specific to your School.
-While I may not look into it immediately, I'll do my best to update this as often as I can
+While I may not look into it immediately, I'll do my best to update this as often as I can.
 
 #### I want to contribute, how can I?
 
-You can open a [ticket](https://github.com/daemonPainter/polimi-press-package/issues) suggesting new features, reporting bugs and discussing in general. You can always send up your files to the repo, just use the correct file structure (see section 3) and clear up any whopsie-commits before pushing.
+You can open a [ticket](https://github.com/daemonPainter/polimi-press-package/issues) suggesting new features, reporting bugs and discussing in general. You can always send up your files to the repo, just use the correct file structure (see section 2) and clear up any whopsie-commits before pushing.
