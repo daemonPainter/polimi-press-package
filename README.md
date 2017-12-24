@@ -1,5 +1,4 @@
 Polimi Press Package
-
 ==============
 
 Welcome to the _Polimi Press Package_, comprising themes and templates for the most popular applications for word-editing and presentations.
