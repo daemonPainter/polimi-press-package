@@ -15,6 +15,8 @@ Table of Contents
 3. Disclaimer
 4. F.A.Q.s
 
+--------------
+
 1. Scope of the repository
 ------------------------------
 
