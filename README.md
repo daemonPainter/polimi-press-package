@@ -10,14 +10,14 @@ do my best to provide new files and translations.
 Table of Contents
 ===========
 
-1. Scope of the repository
-2. Architecture of the repository
-3. Disclaimer
-4. F.A.Q.s
+1. [Scope of the repository](#scope)
+2. [Architecture of the repository](#architecture)
+3. [Disclaimer](disclaimer)
+4. [F.A.Q.s](faqs)
 
 --------------
 
-1) Scope of the repository
+<a id="scope"></a>Scope of the repository
 ------------------------------
 
 Develop a large enough project, like a Thesis, is enough work for a small enough group of people. Typesetting the whole thing on top of making sense of the phrases and create a decent presentation
@@ -25,7 +25,7 @@ may require too much (unavailable) time. Doing so following all of the prescribe
 By releasing these files under the [MIT Licence](https://github.com/daemonPainter/polimi-press-package/blob/master/LICENSE) I hope to ease a lot of work from your shoulders. In here you will find templates, styling files, examples and so on for diverse popular applications.
 You may downoad them, install them and customize them to fullfil your most higher expectations.
 
-2) Architecture of the repository
+<a id="architecture"></a>Architecture of the repository
 -------------------------------------
 
 The repo is organized as follows:
@@ -39,13 +39,13 @@ The repo is organized as follows:
   |   |-\Master Thesis
 ```
 
-3) Disclaimer
+<a id="disclaimer"></a>Disclaimer
 ---------------
 
 All files are provided as they are, with no implicit or explicit warranty of any kind. While I always do my best to provide top notch quality of files, I'm only human and working on this project in my spare time.
 For a professional level editing, issue-tracking and service, consider [hiring](mailto:mail@gabrieleomodeo.it) me.
 
-[F.A.Q.s](#faqs)
+<a id="faqs"></a>F.A.Q.s
 -----------
 
 ##### Why isn't my School / Study course represented in the repo?
