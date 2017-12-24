@@ -45,7 +45,7 @@ The repo is organized as follows:
 All files are provided as they are, with no implicit or explicit warranty of any kind. While I always do my best to provide top notch quality of files, I'm only human and working on this project in my spare time.
 For a professional level editing, issue-tracking and service, consider [hiring](mailto:mail@gabrieleomodeo.it) me.
 
-4) F.A.Q.s
+[F.A.Q.s](#faqs)
 -----------
 
 ##### Why isn't my School / Study course represented in the repo?
