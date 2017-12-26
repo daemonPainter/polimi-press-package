@@ -1,0 +1,122 @@
+\chapter{Introduction}
+\label{chap: Introduction}
+
+\thispagestyle{chapter}
+
+Welcome to the main matter of your thesis. In here, write as much content as you can.
+
+\section{Success meets Preparation}
+\label{sec: Success meets Preparation}
+
+Set up the workplace right at the beginning and you'll never need to worry about it later on.
+
+\subsection{Read the source}
+\label{sec: Read the source}
+
+First and foremost, read the source code to see how things come along together. For instance, have a look at the main settings in the \lstinline{Tesi.tex} file, get acquainted with it. You shall be able to identify places where to put your own customizations to the code. There is no \say{one size fits them all} kind of solution when it comes to projects of this size.
+
+Best practices I recommend:
+\begin{enumerate}
+\item Label each Chapter, Section, Subsection, Figure, Table;
+\begin{enumerate}
+\item Use the entire name of the object you are referencing (see source code for examples);
+\item Use prefixes in labels, such as Chap, Sec, Fig, Tab;
+\item Use \lstinline{cref} or \lstinline{Cref} to reference said objects. Get to know the usage of the cleveref package, it is quite handy: \cref{chap: Introduction};
+\end{enumerate}
+\item Always end items in bullet lists with a semicolon;
+\item Be clear on the style of acronyms at the beginning: do you capitalize or not? Changing them midway is really time-consuming;
+\item Always cite your references \cite{dummy2017tutorial};
+\item The last item in a list requires a full stop.
+\end{enumerate}
+
+\section{Tables}
+\label{sec: Tables}
+
+Here I provide two examples of tables. A simpler one (\cref{Tab: example}) and a more advanced one (\cref{Tab: complicate example}). Remember, the page has a fixed dimension: do your best to fit the data into the space, not to other way around (i.e. twisting the space to fit your content).
+
+\begin{table}[h]
+\caption{Table captions should be statements of their own, available even when extracted out of context.}
+\label{Tab: example}
+\centering
+\begin{tabular}[t]{cc}
+\toprule
+\textbf{item} & \textbf{count} \\
+\midrule
+item & 10.004 \\
+item & 20.002 \\
+item & 20.01 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htb!p]
+\caption{Much more complicated table}
+\label{Tab: complicate example}
+\centering
+\begin{adjustbox}{max width=.8\textwidth}
+\begin{tabular}{ccccccc}
+\toprule
+\multicolumn{7}{c}{Title} \\
+\midrule
+& {\textbf{A}} & {\textbf{B}} & {\textbf{C}} & {\textbf{D}} & median & IQR \\
+\cmidrule(lr){2-5}
+\cmidrule(lr){6-7}
+${\mathbf{class 1}}$ & 0.34 & 0.70 & 0.78 & 0.76 & 0.77 & 0.09\\
+${\mathbf{class 2}}$ & 0.25 & 0.43 & 0.89 & 0.45 & 0.84 & 0.14\\
+${\mathbf{class 3}}$ & 0.67 & 0.50 & 0.11 & 0.85 & 0.13 & 0.17\\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+Vertical lines should be avoided, as the proliferation of horizontal lines. In addition, consider putting the tables and figure declarations in separate files in the project folder and reference them using the \lstinline{input} command.
+
+To conclude, a last more complicated type of table: \cref{Tab: different environment}.
+
+ \begin{table}[t!p]
+\caption{The style should fit your own taste, however, keep it simple. This table uses a different environment wrt the previous two examples.}
+\label{Tab: different environment}
+\centering
+\begin{tabular*}{1.\textwidth}{@{\extracolsep{\fill}}lrcccccccc}
+\toprule
+\multicolumn{2}{c}{\multirow{2}{*}{\textbf{XXX}}} & \multicolumn{2}{c}{AAA} & \multicolumn{2}{c}{BBB} & \multicolumn{4}{c}{CCC} \\
+& & time & score & time & score & time & score & count & stdev \\
+\cmidrule(lr){3-4}
+\cmidrule(lr){5-6}
+\cmidrule(lr){7-10}
+\multirow{4}{*}{\rotatebox[origin=c]{90}{Fold 1}} 
+& 1 & $\geq 30$ & 0 & $\geq 30$ & 0 & 1:00 (0:20) & 2 & 2  & 54 $\pm$ 4  \\
+& 2 & 2:20 	  & 1 &	1:20 	  & 1 & 0:40 (0:30) & 2 & 10 & 48 $\pm$ 28 \\
+& 3 & $\geq 30$ & 0 &	8:10 	  & 3 & 1:00 (1:00) & 4 & 5  & 53 $\pm$ 40 \\
+& 4 & $\geq 30$ & 0 & 3:10 	  & 2 & 1:00 (1:40) & 3 & 3	 & 73 $\pm$ 57 \\
+\cmidrule(lr){1-2}
+\cmidrule(lr){3-4}
+\cmidrule(lr){5-6}
+\cmidrule(lr){7-10}
+\multirow{4}{*}{\rotatebox[origin=c]{90}{Fold 2}}
+& 5 & 4:20	  & 3 & 1:20  & 3 & 0:30 (0:30) & 3 & 3 & 20  $\pm$ 1  \\
+& 6 & $\geq 30$ & 0 &	10:00 & 1 & 1:40 (1:10) & 1 & 2 & 136 $\pm$ 30 \\
+& 7 & 3:40  	  & 2 &	2:00  & 3 & 1:00 (0:30) & 3 & 4 & 75  $\pm$ 21 \\
+& 8 & 10:10	  & 4 &	4:40  & 3 & 0:50 (1:00) & 4 & 5 & 66  $\pm$ 45 \\
+\cmidrule(lr){1-2}
+\cmidrule(lr){3-4}
+\cmidrule(lr){5-6}
+\cmidrule(lr){7-10}
+\multirow{4}{*}{\rotatebox[origin=c]{90}{Fold 3}}
+& 9 & 5:50	   & 3 & 5:30 & 3 & 0:40 (0:50) & 3 & 2 & 40 $\pm$ 40 \\
+& 10 & $\geq 30$ & 0 & 14:20& 2 & 0:40 (0:40) & 3 & 3 & 26 $\pm$ 17 \\
+& 11 & 3:20	   & 1 & 2:40 & 1 & 0:40 (0:40) & 3.5& 2& 34 $\pm$ 23 \\
+& 12 & 3:20	   & 2 & 1:30 & 3 & 1:20 (--)   & 3 & 1 & 67 ~--	  \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+Remember: list of tables and figures are procedurally updated by the compiler.
+
+\section{Typographic features}
+\label{sec: Typographic features}
+
+Whilst not encouraged, you may benefit of \textbf{Bold Text}, \textit{Italic Text} and \underline{Underlined Text}. I also provided you with the official \textcolor{Livery}{Polimi blu} color, with \textcolor{Accent1}{three} \textcolor{Accent2}{complementary} \textcolor{Accent3}{accent} colors. Make use of them if needed. I found them particularly useful in the Tikz/pgf plot environment, which I do encourage you to experiment widely, as it saves you from the trouble of re-making figures with explicit references on the axis and if their content should change. Add-ons for Matlab and Python are available to automagically create crappy-looking, yet improvable, pgf-compatible figures.
+
+Best of lucks!

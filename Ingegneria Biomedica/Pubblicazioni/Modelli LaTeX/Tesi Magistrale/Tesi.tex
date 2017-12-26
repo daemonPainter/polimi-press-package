@@ -1,0 +1,273 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% MASTER THESIS TEMPLATE | POLITECNICO DI MILANO 				%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% AUTHOR: Gabriele Omodeo Vanone 								%%
+%%%% CONTACT: mail@gabrieleomodeo.it								%%
+%%%% SOURCE: https://github.com/daemonPainter/polimi-press-package  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note: dimensions are given in points. 1pt = 0.3515 mm
+% Note: This template is compliant to the rules of the School of Biomedical Engineering (last update 2017)
+
+\documentclass[12pt,a4paper,twoside,openright]{report}
+\special{papersize=210mm,297mm}	%fixes PDF creation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Typography -----------------------------
+\usepackage[english,italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}		% define custom colors
+\usepackage{pdflscape}	% landscape pages orientation
+\usepackage{setspace}	% better spacing
+\usepackage{rotating}  	% better landscapes
+\usepackage{hhline}
+\usepackage{gensymb}	% extends rendering of symbols in creation, like ° (degrees)
+\usepackage{fancyhdr}	% pages headers and footers
+\usepackage{paralist}	% inline lists of items
+\usepackage{listings}	% code listings
+	% setup you defaults here
+    \lstset{basicstyle={\ttfamily}}
+\usepackage{textpos}
+\usepackage{adjustbox}
+% Set pages margins
+\usepackage[inner=3cm,outer=2.5cm,top=3cm,bottom=3cm]{geometry}
+% font size is set in documentclass declaration
+
+%% Figures ----------------------------------
+\usepackage[]{graphicx}
+\usepackage{subcaption}	% multiple figures
+\usepackage{afterpage} 	% fix for misplaced figures
+\usepackage{caption}	% allows captions to figures
+	% font size for captions:
+	\captionsetup{font={footnotesize,sl},labelfont={normalfont,bf}}	% caption package does not allow to explicitly specify the font size in captions. So, footnotesize option for 12pt base should be equal to 10pt: http://tex.stackexchange.com/questions/68070/how-to-set-font-size-for-caption-but-not-caption
+	% an alternative would be to declare a caption style, but it takes time.
+	% see for reference http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/caption/caption-eng.pdf
+
+%% Tables -----------------------------------
+\usepackage{tabularx}	% better tables
+	% define a new x type of column with centered text
+    \def\tabularxcolumn#1{m{#1}}
+\usepackage{colortbl}	% color for tables
+\usepackage{booktabs}	% way better horizontal lines for tables
+\usepackage{multirow}
+\usepackage{multicol}
+
+%% Math -------------------------------------
+\usepackage{amsmath,amssymb}
+	% define new environments for math typography here
+	\newtheorem{hypothesis}{Hypothesis}
+
+%% Conveniences -----------------------------
+\usepackage{dirtytalk}					% simpler quotes, invoke \say{}
+%\usepackage[intoc]{nomencl}				% list of acronyms  | troubles with page styling
+\usepackage[titletoc,title]{appendix}	% appendix prefix in chapter titles
+
+%% Tikz/Pgf plots ---------------------------
+\usepackage{tikz}
+\usepackage{pgfplots}
+	\pgfplotsset{compat=newest}
+\usepackage{pgfkeys,pgfmath,xargs}
+\usepackage{subcaption} 
+\usetikzlibrary{matrix,shapes,arrows,positioning,backgrounds}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{units}
+
+%% References -------------------------------
+\usepackage{cleveref}
+	\crefname{section}{Sec.}{Sec.s} %{§}{§§}
+	\Crefname{section}{Sec.}{Sec.s}
+	\crefname{figure}{Fig.}{Fig.s}
+	\Crefname{figure}{Fig.}{Fig.s}
+	\crefname{table}{Tab.}{Tab.s}
+	\Crefname{table}{Tab.}{Tab.s}
+	\crefname{appendix}{Appendix}{Appendices}
+	\Crefname{appendix}{Appendix}{Appendices}
+	\crefname{chapter}{Chapter}{Chapters}
+	\Crefname{chapter}{Chapter}{Chapters}
+
+%% Debug ------------------------------------
+\usepackage{blindtext}	% Insert dummy text
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% FURTHER DOCUMENT OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Define custom word breaks when line end is reached if needed.
+\hyphenation{Ge-no-va}
+
+%%%% Define line spacing
+\linespread{1.5}
+
+%%%% Custom page headers and footers
+
+\pagestyle{fancy} % needed for customization to work
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} %otherwise \rightmark and \leftmark won't work properly
+
+\fancypagestyle{frontmatter}{
+\fancyhf{} % total reset of header and footer
+\fancyfoot[LE,RO]{\fontsize{8}{10}\selectfont \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+}
+
+\fancypagestyle{mainmatter}{
+\fancyhead[LE,RO]{\fontsize{8}{10}\selectfont \chaptername~\thechapter:~\leftmark }
+\fancyfoot[RE]{\fontsize{8}{10}\selectfont Nome Cognome}
+\fancyfoot[LO]{\fontsize{8}{10}\selectfont Titolo della tesi}
+\fancyfoot[LE,RO]{\fontsize{8}{10}\selectfont \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+}
+
+\fancypagestyle{backmatter}{
+\fancyhf{} % total reset of header and footer
+\fancyfoot[LE,RO]{\fontsize{8}{10}\selectfont \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+}
+
+\fancypagestyle{chapter}{
+\fancyhf{} % total reset of header and footer
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+\setlength{\headheight}{15pt}	% avoids warning
+\fancyfoot[LE,RO]{\fontsize{8}{10}\selectfont \thepage}
+}
+
+%%%% Add fancy horizontal lines to header and footer
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \@chapapp{} \thechapter
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \vphantom{\@chapapp{} \thechapter}
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 100\p@
+  }}
+\makeatother
+
+%%%% Define custom colors
+\definecolor{Livery}{RGB}{114,145,165}
+	\definecolor{Accent1}{RGB}{243,113,33}
+	\definecolor{Accent2}{RGB}{0,121,145}
+	\definecolor{Accent3}{RGB}{239,45,86}
+    
+%%%% Styling acronyms list
+
+%%insert columns
+%\renewcommand{\nompreamble}{\begin{multicols}{2}}
+%\renewcommand{\nompostamble}{\end{multicols}}
+%% middle separator
+%\setlength{\columnseprule}{.3pt}
+%\def\columnseprulecolor{\color{black}}
+%% distance between columns
+%\setlength\columnsep{50pt}
+%
+%\renewcommand{\nomname}{List of Acronyms}
+%\makenomenclature
+
+%%%% Styling of table of contents
+\AtBeginDocument{%
+  \addtocontents{toc}{\protect\thispagestyle{chapter}}%
+  \addtocontents{lof}{\protect\thispagestyle{chapter}}%
+  \addtocontents{lot}{\protect\thispagestyle{chapter}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ACTUAL CONTENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+	% set main document language
+	\selectlanguage{english}
+    
+% ---- Cover page ----
+\input{Frontespizio}
+\thispagestyle{empty} \cleardoublepage
+
+% ---- Acknowledgements ----
+\include{Dedica}
+\thispagestyle{empty} \cleardoublepage
+
+\pagenumbering{roman}
+\pagestyle{frontmatter}
+
+\begin{normalsize}
+\singlespacing
+\tableofcontents
+\end{normalsize}
+\cleardoublepage
+
+% ---- Abstract ----
+\include{Abstract}
+\cleardoublepage
+\include{Sommario}
+\cleardoublepage
+
+\pagenumbering{arabic}
+\pagestyle{mainmatter}
+
+% ---- Chapters ----
+\include{Capitolo1}
+\include{Capitolo2}
+\include{Capitolo3}
+
+% ---- Appendixes ----
+\begin{appendices}
+\renewcommand\chaptername{Appendix}
+\include{AppendiceA}
+\end{appendices}
+
+\pagestyle{backmatter}
+\cleardoublepage
+
+
+% ---- List of acronyms ----
+%\begin{small}
+%\thispagestyle{chapter}
+%\printnomenclature[2cm]
+%\end{small}
+%\cleardoublepage
+
+
+\begin{footnotesize}
+\singlespacing
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\cleardoublepage
+\end{footnotesize}
+
+% ---- Bibliography ----
+\small
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{bibliography}
+%\nocite{*}
+
+\appendix
+
+\end{document}
