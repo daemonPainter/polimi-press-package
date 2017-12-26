@@ -56,3 +56,7 @@ While I may not look into it immediately, I'll do my best to update this as ofte
 #### I want to contribute, how can I?
 
 You can open a [ticket](https://github.com/daemonPainter/polimi-press-package/issues) suggesting new features, reporting bugs and discussing in general. You can always send up your files to the repo, just use the correct file structure (see section 2) and clear up any whopsie-commits before pushing.
+
+#### How can I remain posted on the development of this project?
+
+Currently, there is no mailing list set up. However, you can stay posted reading this [page](https://github.com/daemonPainter/polimi-press-package/wiki/Devstream).
