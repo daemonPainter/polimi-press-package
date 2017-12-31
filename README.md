@@ -60,3 +60,7 @@ You can open a [ticket](https://github.com/daemonPainter/polimi-press-package/is
 #### How can I remain posted on the development of this project?
 
 Currently, there is no mailing list set up. However, you can stay posted reading this [page](https://github.com/daemonPainter/polimi-press-package/wiki/Devstream).
+
+#### The folder /DEIB is not following the standard given convention, why is it?
+
+The /DEIB package is a merge of the Classic DEIB thesis template from https://github.com/Lordmzn/ClassicThesis-at-DEIB .
